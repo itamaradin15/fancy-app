@@ -14,6 +14,6 @@ jobs:
             ${{ runner.OS }}-${{ github.repository }}-phpcsfixer-
 
       - name: Running PHP CS Fixer
-        uses: docker://oskarstark/php-cs-fixer-ga:3.34
+        uses: docker://oskarstark/php-cs-fixer-ga:3.25.0
         with:
           args: --config=.php-cs-fixer.php --diff --dry-run
