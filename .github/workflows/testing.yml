@@ -32,7 +32,7 @@ jobs:
           coverage: none
 
       - name: Copy ENV Laravel Configuration for CI
-        run: rm -rf .env && cp .env.testing .env
+        run: rm -rf .env && cp .env.example .env
 
       - name: Install dependencies
         run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist

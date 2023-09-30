@@ -15,7 +15,6 @@ $rules = [
     'blank_line_before_statement' => [
         'statements' => ['return']
     ],
-    'braces' => true,
     'cast_spaces' => true,
     'class_attributes_separation' => [
         'elements' => [
@@ -33,7 +32,7 @@ $rules = [
     'full_opening_tag' => true,
     'fully_qualified_strict_types' => true,
     'function_declaration' => true,
-    'function_typehint_space' => true,
+    'type_declaration_spaces' => true,
     'heredoc_to_nowdoc' => true,
     'include' => true,
     'increment_style' => ['style' => 'post'],
@@ -74,9 +73,9 @@ $rules = [
     'no_singleline_whitespace_before_semicolons' => true,
     'no_spaces_after_function_name' => true,
     'no_spaces_around_offset' => true,
-    'no_spaces_inside_parenthesis' => true,
-    'no_trailing_comma_in_list_call' => true,
-    'no_trailing_comma_in_singleline_array' => true,
+    'spaces_inside_parentheses' => true,
+    'no_trailing_comma_in_singleline' => true,
+    'no_trailing_comma_in_singleline' => true,
     'no_trailing_whitespace' => true,
     'no_trailing_whitespace_in_comment' => true,
     'no_unneeded_control_parentheses' => true,
@@ -107,7 +106,7 @@ $rules = [
     'short_scalar_cast' => true,
     'simplified_null_return' => false,
     'single_blank_line_at_eof' => true,
-    'single_blank_line_before_namespace' => true,
+    'blank_lines_before_namespace' => true,
     'single_class_element_per_statement' => true,
     'single_import_per_statement' => true,
     'single_line_after_imports' => true,
@@ -132,7 +131,7 @@ $rules = [
 
 
 $finder = Finder::create()
-            ->exclude(['Libs','database'])
+            ->exclude(['Libs'])
             ->in([
                 __DIR__ . '/app',
                 __DIR__ . '/config',
