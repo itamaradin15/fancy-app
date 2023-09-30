@@ -35,12 +35,15 @@
         }
     },
     "scripts": {
+        "cghooks": "vendor/bin/cghooks",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
+        "post-install-cmd": "cghooks add --ignore-lock",
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "cghooks update"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -58,6 +61,15 @@
     "extra": {
         "laravel": {
             "dont-discover": []
+        },
+        "hooks": {
+            "config": {
+                "stop-on-failure": ["pre-push"]
+            },
+            "pre-push": [
+                "./vendor/bin/php-cs-fixer fix -vvv --dry-run  --diff --show-progress=dots --stop-on-violation",
+                "php artisan test"
+            ]
         }
     },
     "config": {
