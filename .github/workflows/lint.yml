@@ -1,4 +1,4 @@
-on: [push, pull_request]
+on: [push]
 name: checking-code
 jobs:
   php-cs-fixer:
