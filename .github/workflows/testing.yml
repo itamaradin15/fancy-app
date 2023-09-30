@@ -31,9 +31,6 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd
           coverage: none
 
-      - name: Copy ENV Laravel Configuration for CI
-        run: rm -rf .env && cp .env.testing .env
-
       - name: Install dependencies
         run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
