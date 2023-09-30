@@ -1,0 +1,19 @@
+on: [push, pull_request]
+name: checking-code
+jobs:
+  php-cs-fixer:
+    name: PHP-CS-Fixer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: .php-cs-fixer.cache
+          key: ${{ runner.OS }}-${{ github.repository }}-phpcsfixer-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.OS }}-${{ github.repository }}-phpcsfixer-
+
+      - name: Running PHP CS Fixer
+        uses: docker://oskarstark/php-cs-fixer-ga:3.22.0
+        with:
+          args: --config=.php-cs-fixer.php --diff --dry-run
