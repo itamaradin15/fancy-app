@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   build:
-    name: Scanning 👀 👀 👀
+    name: Scanning your Code 👀
     runs-on: ubuntu-latest
     permissions: read-all
     steps:
